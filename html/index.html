@@ -68,7 +68,7 @@
         </div>
         <div class="section__bot-line about__bot-line"></div>
         <div class="section__right-control about__right-control acs">
-          <span class="section__btn-text about__btn-text">Далее</span>
+          <span class="section__btn-text section__btn-text_next about__btn-text">Далее</span>
           <div class="section__btn-arrow about__btn-arrow"></div>
         </div>
       </div>
@@ -141,7 +141,7 @@
         </div>
         <div class="section__bot-line how__bot-line"></div>
         <div class="section__right-control how__right-control acs">
-          <span class="section__btn-text how__btn-text">Далее</span>
+          <span class="section__btn-text section__btn-text_next how__btn-text">Далее</span>
           <div class="section__btn-arrow how__btn-arrow"></div>
         </div>
       </div>
@@ -179,17 +179,64 @@
         </div>
         <div class="section__bot-line partner__bot-line"></div>
         <div class="section__right-control partner__right-control acs">
-          <span class="section__btn-text partner__btn-text">Далее</span>
+          <span class="section__btn-text section__btn-text_next partner__btn-text">Далее</span>
           <div class="section__btn-arrow partner__btn-arrow"></div>
         </div>
       </div>
     </section>
-    <section class="section request"></section>
+    <section class="section request">
+      <div class="section__top-line request__top-line acs"></div>
+      <div class="section__content request__content">
+        <h2 class="section__title request__title acs">Заявка</h2>
+        <a href="#" class="section__pagename request__pagename acs">FAQ</a>
+        <form action="post" class="request__form">
+          <div class="request__row acs">
+            <input type="text" class="request__control request__input" placeholder="Имя Фамилия" name="name" required>
+            <input type="email" class="request__control request__input" placeholder="Email" name="email" required>
+          </div>
+          <div class="request__row acs">
+            <input type="text" class="request__control request__input" placeholder="Контактный телефон" name="phone" required>
+          </div>
+          <div class="request__row acs">
+            <input type="text" class="request__control request__input" placeholder="Какую компанию вы представляете и ваша должность" name="job" required>
+          </div>
+          <div class="request__row acs">
+            <select name="type" class="request__control request__select">
+              <!-- TODO add options -->
+              <option value="" disabled selected>Выберите способ получения инструкций по уходу за цветком</option>
+              <option value="Viber">Viber</option>
+              <option value="SMS">SMS</option>
+              <option value="Email">Email</option>
+              <option value="Telegram">Telegram</option>
+            </select>
+          </div>
+          <div class="request__row request__row_btn acs">
+            <button class="request__submit" type="submit">Растить скидку</button>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="footer__text">© Коммуникационное агентство JCS</div>
-    <div class="footer__socials"></div>
+    <ul class="footer__socials">
+      <li class="footer__social-item">
+        <a href="https://www.facebook.com/jcsbelarus/" target="_blank" class="footer__social-link">
+          <img src="/assets/img/socials/fb.png" alt="Facebook" class="footer__social-img">
+        </a>
+      </li>
+      <li class="footer__social-item">
+        <a href="https://www.instagram.com/jcsbelarus/" target="_blank" class="footer__social-link">
+          <img src="/assets/img/socials/instagram.png" alt="Instagram" class="footer__social-img">
+        </a>
+      </li>
+      <li class="footer__social-item">
+        <a href="http://jcs.by/" target="_blank" class="footer__social-link">
+          <img src="/assets/img/socials/jcs.png" alt="JCS" class="footer__social-img">
+        </a>
+      </li>
+    </ul>
   </footer>
 
   <div id="scroll"></div>

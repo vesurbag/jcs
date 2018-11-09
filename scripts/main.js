@@ -2,11 +2,16 @@ var activeSection
 var inProgress = false
 
 $(function() {
-    animationsInit()
-    var sections = getSections()
-    changeSection(sections[0])
-    createVerticalScroll(sections)
-    initScrollHandler(sections)
+    if (window.innerWidth > 1024) {
+        animationsInit()
+        var sections = getSections()
+        changeSection(sections[0])
+        createVerticalScroll(sections)
+        initScrollHandler(sections)
+    } else {
+
+    }
+    
 })
 
 function getSections () {
@@ -227,6 +232,38 @@ var sectionAnimations = {
                 '.partner__item',
                 '.partner__right-control',
                 '.partner__left-control'
+            ])
+        }
+    },
+    4: {
+        animate: function() {
+            var step_3 = function() {
+                $('.request__left-control').animateCss('fadeInLeft')
+                $('.request__right-control').animateCss('fadeInRight')
+            }
+            var step_2 = function() {
+                $('.request__row').map(function(i) {
+                    var elem = this
+                    setTimeout(function() {
+                        $(elem).animateCss('fadeIn')
+                    }, i * 100)
+                })
+                $('.request__title').animateCss('fadeInDown', step_3)
+            }
+            var step_1 = function() {
+                $('.request__top-line').animateCss('fadeIn')
+                $('.request__pagename').animateCss('fadeIn', step_2)
+            }
+            step_1()
+        },
+        reset: function() {
+            resetAnimation([
+                '.request__title',
+                '.request__top-line',
+                '.request__pagename',
+                '.request__row',
+                '.request__right-control',
+                '.request__left-control'
             ])
         }
     }
