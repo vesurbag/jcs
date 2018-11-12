@@ -3,15 +3,37 @@ var inProgress = false
 
 $(function() {
     if (window.innerWidth > 1024) {
+        $('#mobileText').remove()
         animationsInit()
         var sections = getSections()
         changeSection(sections[0])
         createVerticalScroll(sections)
         initScrollHandler(sections)
+        initButtons()
     } else {
+        $('#desktopText').remove()
+        $('#selection').html('Способ получения')
+        $('#owl').addClass('owl-carousel')
+        $('.footer').appendTo('.request__content')
+        $('#owl').owlCarousel({
+            items: 1,
+            nav: true,
+            onDrag: function() {$('.section').addClass('section_fix')},
+            onDragged: function() {$('.section').removeClass('section_fix')}
+        })
 
+        $('.prev').click(function() {
+            $('.owl-prev').click()
+        })
+        $('.next').click(function() {
+            $('.owl-next').click()
+        })
     }
+
     
+    $('.modal__item').click(function() {
+        $(this).find('.modal__text').toggleClass('modal__text_show')
+    })
 })
 
 function getSections () {
@@ -47,6 +69,16 @@ function changeSection (section) {
         inProgress = false
         sectionAnimations[section.index] && sectionAnimations[section.index].animate()
     }, 500)
+}
+
+function initButtons () {
+    $('.next').click(function() {
+        window.scrollTo(0, activeSection.next.top + 10)
+    })
+
+    $('.prev').click(function() {
+        window.scrollTo(0, activeSection.prev.top + 10)
+    })
 }
 
 function initScrollHandler (sections) {
@@ -203,39 +235,39 @@ var sectionAnimations = {
             ])
         }
     },
+    // 3: {
+    //     animate: function() {
+    //         var step_3 = function() {
+    //             $('.partner__left-control').animateCss('fadeInLeft')
+    //             $('.partner__right-control').animateCss('fadeInRight')
+    //         }
+    //         var step_2 = function() {
+    //             $('.partner__item').map(function(i) {
+    //                 var elem = this
+    //                 setTimeout(function() {
+    //                     $(elem).animateCss('fadeInRight')
+    //                 }, i * 100)
+    //             })
+    //             $('.partner__title').animateCss('fadeInDown', step_3)
+    //         }
+    //         var step_1 = function() {
+    //             $('.partner__top-line').animateCss('fadeIn')
+    //             $('.partner__pagename').animateCss('fadeIn', step_2)
+    //         }
+    //         step_1()
+    //     },
+    //     reset: function() {
+    //         resetAnimation([
+    //             '.partner__title',
+    //             '.partner__top-line',
+    //             '.partner__pagename',
+    //             '.partner__item',
+    //             '.partner__right-control',
+    //             '.partner__left-control'
+    //         ])
+    //     }
+    // },
     3: {
-        animate: function() {
-            var step_3 = function() {
-                $('.partner__left-control').animateCss('fadeInLeft')
-                $('.partner__right-control').animateCss('fadeInRight')
-            }
-            var step_2 = function() {
-                $('.partner__item').map(function(i) {
-                    var elem = this
-                    setTimeout(function() {
-                        $(elem).animateCss('fadeInRight')
-                    }, i * 100)
-                })
-                $('.partner__title').animateCss('fadeInDown', step_3)
-            }
-            var step_1 = function() {
-                $('.partner__top-line').animateCss('fadeIn')
-                $('.partner__pagename').animateCss('fadeIn', step_2)
-            }
-            step_1()
-        },
-        reset: function() {
-            resetAnimation([
-                '.partner__title',
-                '.partner__top-line',
-                '.partner__pagename',
-                '.partner__item',
-                '.partner__right-control',
-                '.partner__left-control'
-            ])
-        }
-    },
-    4: {
         animate: function() {
             var step_3 = function() {
                 $('.request__left-control').animateCss('fadeInLeft')
