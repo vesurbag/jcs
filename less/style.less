@@ -84,6 +84,13 @@ body {
     top: 0;
     font-weight: 600;
     font-size: 1.5rem;
+    transition: .25s;
+    &:hover {
+      color: @color_accent;
+    }
+    &:active {
+      color: @color_accent_active;
+    }
   }
 
   &__btn-arrow {
@@ -140,6 +147,7 @@ body {
 
   &__left-control {
     left: 0;
+    right: auto;
   }
 
   &__btn-text {
@@ -218,6 +226,14 @@ body {
 
     &__title {
       margin-top: 25px;
+    }
+
+    &__pagename {
+      top: 2px;
+    }
+
+    &__left-control {
+      left: -10px;
     }
   }
 
@@ -318,6 +334,10 @@ body {
     &__text {
       width: 50%;
     }
+
+    &__pagename {
+      top: 4px;
+    }
   }
 
   @media screen and (max-width: 767px) {
@@ -332,7 +352,7 @@ body {
   }
 
   @media screen and (max-width: 480px) {
-    background-position: 65% 80%;
+    background-position: center 75%;
 
     &__title {
       font-size: 4.5rem;
@@ -431,6 +451,11 @@ body {
     &:last-child {
       margin-right: 0;
     }
+  }
+
+  &__text-img {
+    max-width: 50px;
+    max-height: 50px;
   }
 
   &__text-wrap {
@@ -600,19 +625,20 @@ body {
     flex: 1;
     border: 1px solid #dadada;
     border-radius: 50px;
-    padding: 15px 25px;
-    margin-bottom: 25px;
+    padding: 13px 22px;
+    margin-bottom: 20px;
     outline: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 300;
     font-family: @font_family;
     background-color: #fcfcfc;
     transition: .25s;
+    -webkit-appearance: none;
     &::placeholder {
       text-overflow: ellipsis;
     }
     &:nth-child(2n) {
-      margin-left: 30px;
+      margin-left: 20px;
     }
     &:focus {
       background-color: #fff;
@@ -640,7 +666,7 @@ body {
     background-color: @color_accent;
     border-radius: 50px;
     border: none;
-    padding: 15px 25px;
+    padding: 13px 22px;
     margin: 0;
     cursor: pointer;
     outline: none;
@@ -650,10 +676,6 @@ body {
     &:active {
       background-color: @color_accent_active;
     }
-  }
-
-  &__content {
-    overflow: auto;
   }
 
   @media screen and (max-width: 1400px) {
@@ -731,6 +753,11 @@ body {
     }
   }
 
+  &__social-img {
+    max-width: 32px;
+    max-height: 32px;
+  }
+
   @media screen and (max-width: 1024px) {
     left: 0;
     padding: 0 25px;
@@ -745,17 +772,21 @@ body {
   }
 }
 
-.modal {
+body .modal {
+  width: 100%;
   &__item-title {
     margin-top: 15px;
     margin-bottom: 0;
     cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
   }
 
   &__text {
     max-height: 0;
     overflow: hidden;
     transition: .25s;
+    font-weight: 300;
     &_show {
       padding-top: 10px;
       max-height: 1000px;
