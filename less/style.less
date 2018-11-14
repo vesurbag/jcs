@@ -651,6 +651,7 @@ body {
     background-image: url('/assets/img/arrow-btn.png');
     background-repeat: no-repeat;
     background-position: 98% center;
+    background-size: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -790,6 +791,14 @@ body .modal {
     &_show {
       padding-top: 10px;
       max-height: 1000px;
+    }
+  }
+
+  a.close-modal {
+    background-image: url('/assets/img/icons/close.png');
+    transition: .25s;
+    &:hover {
+      opacity: .9;
     }
   }
 }
