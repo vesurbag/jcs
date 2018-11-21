@@ -2,6 +2,8 @@ var activeSection
 var inProgress = false
 
 $(function() {
+    formHandlerInit()
+
     if (window.innerWidth > 1024) {
         $('#mobileText').remove()
         animationsInit()
@@ -34,12 +36,38 @@ $(function() {
     $('.modal__item').click(function() {
         $(this).find('.modal__text').toggleClass('modal__text_show')
     })
+
+
 })
+
+function formHandlerInit () {
+    $('#form').submit(function (event) {
+        event.preventDefault()
+        var data = {
+            name: document.form.name.value,
+            job: document.form.job.value,
+            email: document.form.email.value,
+            phone: document.form.phone.value,
+            type: document.form.type.value
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '/send_email.php',
+            data: data
+        }).done(function() {
+            $('.thx').addClass('thx_show')
+            setTimeout(function() {
+                $('.thx').removeClass('thx_show')
+            }, 5000)
+        })
+    })
+}
 
 function getSections () {
     var sections = []
     var sectionClass = '.section'
-    $(sectionClass).map(function(i, elem) {
+    $('main ' + sectionClass).map(function(i, elem) {
         sections.push({ index: i, elem })
     })
 

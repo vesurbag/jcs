@@ -198,7 +198,7 @@
       <div class="section__content request__content">
         <h2 class="section__title request__title acs">Заявка</h2>
         <a href="#hows" rel="modal:open" target="_blank" class="section__pagename request__pagename acs">FAQ</a>
-        <form action="post" class="request__form">
+        <form name="form" action="post" class="request__form" id="form">
           <div class="request__row acs">
             <input type="text" class="request__control request__input" placeholder="Имя Фамилия" name="name" required>
             <input type="email" class="request__control request__input" placeholder="Email" name="email" required>
@@ -214,7 +214,7 @@
               name="job" required></textarea>
           </div>
           <div class="request__row acs">
-            <select name="type" class="request__control request__select">
+            <select name="type" class="request__control request__select" required>
               <!-- TODO add options -->
               <option id="selection" value="" disabled selected>Выберите способ получения инструкций по уходу за
                 цветком</option>

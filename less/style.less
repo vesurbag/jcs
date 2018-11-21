@@ -731,9 +731,15 @@ body {
 }
 
 .thx {
-  position: fixed;
+  position: fixed !important;
+  left: 100vw;
   background-color: #fcfcfc;
+  transition: .5s;
   z-index: 1;
+
+  &_show {
+    left: 0;
+  }
 
   &__content {
     display: flex;
@@ -792,6 +798,7 @@ body {
   padding: 0 10vw;
   font-weight: 300;
   font-size: 1.1rem;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.05);
 
   &__socials {
     display: flex;
